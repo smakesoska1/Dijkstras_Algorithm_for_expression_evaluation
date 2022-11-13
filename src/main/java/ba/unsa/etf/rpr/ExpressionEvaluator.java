@@ -28,19 +28,19 @@ public class ExpressionEvaluator {
         Stack<Double> vals = new Stack<>();
 
         while (!queue.isEmpty()) {
-            String token = queue.poll();
-            if (token.equals("(")) {
-            } else if (token.equals("+")) {
-                ops.push(token);
-            } else if (token.equals("-")) {
-                ops.push(token);
-            } else if (token.equals("*")) {
-                ops.push(token);
-            } else if (token.equals("/")) {
-                ops.push(token);
-            } else if (token.equals("sqrt")) {
-                ops.push(token);
-            } else if (token.equals(")")) {
+            String t = queue.poll();
+            if (t.equals("(")) {
+            } else if (t.equals("+")) {
+                ops.push(t);
+            } else if (t.equals("-")) {
+                ops.push(t);
+            } else if (t.equals("*")) {
+                ops.push(t);
+            } else if (t.equals("/")) {
+                ops.push(t);
+            } else if (t.equals("sqrt")) {
+                ops.push(t);
+            } else if (t.equals(")")) {
                 double v = vals.pop();
                 String op = ops.pop();
                 if (op.equals("+")) {
@@ -56,7 +56,7 @@ public class ExpressionEvaluator {
                 }
                 vals.push(v);
             } else {
-                vals.push(Double.parseDouble(token));
+                vals.push(Double.parseDouble(t));
             }
         }
         return (vals.pop());

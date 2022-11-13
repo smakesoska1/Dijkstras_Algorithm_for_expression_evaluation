@@ -60,7 +60,7 @@ public class ExpressionEvaulatorTest {
     @Test
     public void test9(){
         String string=new String("( 1 + ( ( 2 + 3 ) * ( 4 * 5 )))");
-        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is in front of ) bracket");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is no space in front of ) bracket");
     }
 
 

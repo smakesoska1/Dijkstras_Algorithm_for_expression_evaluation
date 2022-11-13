@@ -23,31 +23,37 @@ public class App
             }
         }
 
+        validate(newString);
+
 
         //System.out.printf("Ispisano je:" + novi);
         //System.out.println(novi.length());
         //System.out.println(proba.length());
 
-        /*for (int i = 0; i < velicina; i++) {
-            if (i % 2 == 1 && proba.charAt(i) != ' ') {
-                korektno = false;
-                break;
-            }
-            if (i == 0 && proba.charAt(i) != '(') {
-                korektno = false;
-                break;
-            }
-        }
-
-        if (korektno) {
-            System.out.println("Sve ok");
-        } else {
-            throw new RuntimeException("Nije sve ok");
-        }*/
-
         Double result=ExpressionEvaluator.evaluate(newString);
 
         System.out.println(result);
 
+    }
+
+    public static void validate(String example) {
+        for (int i = 0; i < example.length(); i++) {
+            if (i == 0 && example.charAt(i) != '(') {
+                throw new RuntimeException("There is no first (main) bracket");
+            }
+            if (i == example.length() - 1 && example.charAt(i) != ')') {
+                throw new RuntimeException("There is no last (main) bracket");
+            }
+            if(example.charAt(i)=='(' && example.charAt(i+1)!=' '){
+                throw new RuntimeException("There is no space behind ( bracket");
+            }
+            if(example.charAt(i)==')' && example.charAt(i-1)!=' '){
+                throw new RuntimeException("There is no space in front of ) bracket");
+            }
+            if((example.charAt(i)=='*' || example.charAt(i)=='-' || example.charAt(i)=='+' || example.charAt(i)=='/') && (example.charAt(i-1)!=' ' || example.charAt(i+1)!=' ')){
+                throw new RuntimeException("There is no space between operands");
+            }
+
+        }
     }
 }

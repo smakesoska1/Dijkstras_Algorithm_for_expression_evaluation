@@ -33,5 +33,37 @@ public class ExpressionEvaulatorTest {
             Assertions.assertEquals(101.0,ExpressionEvaluator.evaluate(string));
         }
 
+    @Test
+    public void test5(){
+        String string=new String("1 + ( 5 * 20 ) )");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is no first (main) bracket");
+    }
+
+    @Test
+    public void test6(){
+        String string=new String("( 1 + ( 5 * 20 ) ");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is no last (main) bracket");
+    }
+
+    @Test
+    public void test7(){
+        String string=new String("( 5 + ( 5 +100 ) )");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is no space between operands");
+    }
+
+    @Test
+    public void test8(){
+        String string=new String("( 1 + (( 2 + 3 ) * ( 4 * 5 ) ) )");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is no space behind ( bracket");
+    }
+
+    @Test
+    public void test9(){
+        String string=new String("( 1 + ( ( 2 + 3 ) * ( 4 * 5 )))");
+        Assertions.assertThrows(RuntimeException.class,()->App.validate(string),"There is in front of ) bracket");
+    }
+
+
+
     }
 

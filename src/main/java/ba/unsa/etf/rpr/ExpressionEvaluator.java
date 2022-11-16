@@ -2,6 +2,10 @@ package ba.unsa.etf.rpr;
 
 import java.util.*;
 
+/**
+ * Class for expression evaluation
+ */
+
 public class ExpressionEvaluator {
     private String str;
 
@@ -12,15 +16,20 @@ public class ExpressionEvaluator {
         return str;
     }
 
-    public void setStr(String str) {
-        this.str = str;
+    public void setStr(String stri) {
+        this.str = stri;
     }
+
+    /**
+     *
+     * @param s-parsed String
+     * @return result of Dijkstra algorithm- Double value
+     */
 
     public static Double evaluate(String s) {
         String[] str = s.split(" ");
 
-        ArrayList<String> strList = new ArrayList<String>(
-                Arrays.asList(str));
+        ArrayList<String> strList = new ArrayList<String>(Arrays.asList(str));
 
         Queue<String> queue = new LinkedList<>(strList);
 

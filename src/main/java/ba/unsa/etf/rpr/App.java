@@ -1,8 +1,7 @@
 package ba.unsa.etf.rpr;
 
 /**
- * Hello world!
- *
+ * Input for Dijsktra algorithm for expression evaluation program
  */
 public class App 
 {
@@ -35,6 +34,11 @@ public class App
         System.out.println(result);
 
     }
+
+    /**
+     * Arithmetic validation for entered String
+     * @param example-entered String
+     */
 
     public static void validate(String example) {
         for (int i = 0; i < example.length(); i++) {

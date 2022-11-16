@@ -5,9 +5,12 @@ package ba.unsa.etf.rpr;
  */
 public class App 
 {
+    /**
+     * entry method for console application
+     * @param args input arguments from console
+     * */
     public static void main( String[] args )
     {
-
         //String proba = "( 1 + ( 5 * 2 ) )";
 
         String newString = "";

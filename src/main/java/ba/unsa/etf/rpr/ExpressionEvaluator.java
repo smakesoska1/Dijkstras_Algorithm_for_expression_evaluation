@@ -9,6 +9,9 @@ import java.util.*;
 public class ExpressionEvaluator {
     private String str;
 
+    /**
+     * default contructor
+     * */
     public ExpressionEvaluator() {
     }
 

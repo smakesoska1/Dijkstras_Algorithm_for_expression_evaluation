@@ -32,7 +32,8 @@ public class App
         //System.out.println(novi.length());
         //System.out.println(proba.length());
 
-        Double result=ExpressionEvaluator.evaluate(newString);
+        ExpressionEvaluator e=new ExpressionEvaluator();
+        Double result=e.evaluate(newString);
 
         System.out.println(result);
 

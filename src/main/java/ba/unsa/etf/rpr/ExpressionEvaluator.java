@@ -8,6 +8,8 @@ import java.util.*;
 
 public class ExpressionEvaluator {
     private String str;
+    private Stack<String> ops = new Stack<>();
+    private Stack<Double> vals = new Stack<>();
 
     /**
      * default contructor
@@ -29,48 +31,45 @@ public class ExpressionEvaluator {
      * @return result of Dijkstra algorithm- Double value
      */
 
-    public static Double evaluate(String s) {
+    public Double evaluate(String s) {
         String[] str = s.split(" ");
 
         ArrayList<String> strList = new ArrayList<String>(Arrays.asList(str));
 
         Queue<String> queue = new LinkedList<>(strList);
 
-        Stack<String> ops = new Stack<>();
-        Stack<Double> vals = new Stack<>();
-
         while (!queue.isEmpty()) {
             String t = queue.poll();
             if (t.equals("(")) {
             } else if (t.equals("+")) {
-                ops.push(t);
+                this.ops.push(t);
             } else if (t.equals("-")) {
-                ops.push(t);
+                this.ops.push(t);
             } else if (t.equals("*")) {
-                ops.push(t);
+                this.ops.push(t);
             } else if (t.equals("/")) {
-                ops.push(t);
+                this.ops.push(t);
             } else if (t.equals("sqrt")) {
-                ops.push(t);
+                this.ops.push(t);
             } else if (t.equals(")")) {
-                double v = vals.pop();
-                String op = ops.pop();
+                double v = this.vals.pop();
+                String op = this.ops.pop();
                 if (op.equals("+")) {
-                    v = vals.pop() + v;
+                    v = this.vals.pop() + v;
                 } else if (op.equals("-")) {
-                    v = vals.pop() - v;
+                    v = this.vals.pop() - v;
                 } else if (op.equals("*")) {
-                    v = vals.pop() * v;
+                    v = this.vals.pop() * v;
                 } else if (op.equals("/")) {
-                    v = vals.pop() / v;
+                    v = this.vals.pop() / v;
                 } else if (op.equals("sqrt")) {
                     v = Math.sqrt(v);
                 }
-                vals.push(v);
+                this.vals.push(v);
             } else {
-                vals.push(Double.parseDouble(t));
+                this.vals.push(Double.parseDouble(t));
             }
         }
-        return (vals.pop());
+        return (this.vals.pop());
     }
 }

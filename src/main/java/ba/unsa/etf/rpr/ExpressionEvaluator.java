@@ -25,6 +25,23 @@ public class ExpressionEvaluator {
         this.str = stri;
     }
 
+
+    public Stack<String> getOps() {
+        return ops;
+    }
+
+    public void setOps(Stack<String> ops) {
+        this.ops = ops;
+    }
+
+    public Stack<Double> getVals() {
+        return vals;
+    }
+
+    public void setVals(Stack<Double> vals) {
+        this.vals = vals;
+    }
+
     /**
      *
      * @param s-parsed String

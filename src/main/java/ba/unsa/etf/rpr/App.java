@@ -61,7 +61,9 @@ public class App
             if((example.charAt(i)=='*' || example.charAt(i)=='-' || example.charAt(i)=='+' || example.charAt(i)=='/') && (example.charAt(i-1)!=' ' || example.charAt(i+1)!=' ')){
                 throw new RuntimeException("There is no space between operands");
             }
-
+            if(example.charAt(i)==' ' &&  example.charAt(i-1)=='/' && example.charAt(i+1)=='0') {
+                throw new RuntimeException("You can not divide with zero");
+            }
         }
     }
 }
